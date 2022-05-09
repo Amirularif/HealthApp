@@ -126,6 +126,10 @@ class _CalendarState extends State<Calendar> {
               ),
             ),
             Container(height: 50),
+            Text(" How do you feel today?",style:TextStyle(color: Colors.black,
+                fontSize: 15.0,
+                fontWeight: FontWeight.bold)),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,11 +153,11 @@ class _CalendarState extends State<Calendar> {
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Annoyed'),
+                            Event(title: 'Angry'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Annoyed')];
+                            Event(title: 'Angry')];
                         }
                         setState((){});
                         return;
@@ -163,11 +167,11 @@ class _CalendarState extends State<Calendar> {
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Annoyed'),
+                            Event(title: 'Cry'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Annoyed')];
+                            Event(title: 'Cry')];
                         }
                         setState((){});
                         return;
@@ -177,11 +181,11 @@ class _CalendarState extends State<Calendar> {
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Annoyed'),
+                            Event(title: 'Really Happy'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Annoyed')];
+                            Event(title: 'Really Happy')];
                         }
                         setState((){});
                         return;
@@ -191,11 +195,11 @@ class _CalendarState extends State<Calendar> {
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Annoyed'),
+                            Event(title: 'Happy'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Annoyed')];
+                            Event(title: 'Happy')];
                         }
                         setState((){});
                         return;
