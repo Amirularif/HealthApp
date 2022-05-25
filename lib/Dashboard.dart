@@ -3,6 +3,7 @@ import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
 import 'package:healthapp/profile.dart';
+import 'package:healthapp/Survey.dart';
 
 class DashboardPage extends StatelessWidget{
   const DashboardPage({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class DashboardPage extends StatelessWidget{
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   IconButton(icon: Image.asset('assets/top widget.png'),
-                    iconSize: 155,
+                    iconSize: 153,
                     onPressed: (){
                       Navigator.push(
                         context,
@@ -56,11 +57,20 @@ class DashboardPage extends StatelessWidget{
                     },
                   ),
                   IconButton(icon: Image.asset('assets/bottom widget.png'),
-                    iconSize: 155,
+                    iconSize: 153,
                     onPressed: (){
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => graphPage()),
+                      );
+                    },
+                  ),
+                  IconButton(icon: Image.asset('assets/bottom widget.png'),
+                    iconSize: 153,
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SurveyPage()),
                       );
                     },
                   ),
