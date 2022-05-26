@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        '/' :(context) => LoginPage(),
+        '/' :(context) => LoginPage(),//SurveyPage(),
         '/dashboard' :(context) =>DashboardPage(),
       },
       theme: ThemeData(

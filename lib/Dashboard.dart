@@ -3,7 +3,7 @@ import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
 import 'package:healthapp/profile.dart';
-import 'package:healthapp/Survey.dart';
+import 'package:healthapp/surveymain.dart';
 
 class DashboardPage extends StatelessWidget{
   const DashboardPage({Key? key}) : super(key: key);
@@ -65,12 +65,12 @@ class DashboardPage extends StatelessWidget{
                       );
                     },
                   ),
-                  IconButton(icon: Image.asset('assets/bottom widget.png'),
+                  IconButton(icon: Image.asset('assets/GAD7.png'),
                     iconSize: 153,
                     onPressed: (){
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SurveyPage()),
+                        MaterialPageRoute(builder: (context) => SurveyMainPage()),
                       );
                     },
                   ),

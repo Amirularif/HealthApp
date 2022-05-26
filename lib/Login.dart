@@ -30,16 +30,11 @@ class _LoginPageState extends State<LoginPage> {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+        backgroundColor: Colors.grey.shade100,
         body: Stack(children: [
           Positioned(
             top: 0,
             child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                image: AssetImage('assets/bg.png'),
-                fit: BoxFit.cover,
-                ),
-              ),
               padding: EdgeInsets.all(20.0),
               margin: EdgeInsets.symmetric(horizontal: 0.0),
               height: MediaQuery.of(context).size.height,
@@ -47,20 +42,35 @@ class _LoginPageState extends State<LoginPage> {
               child: SingleChildScrollView(
                 //padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 2 - 230),
                 child: Center(
-                  heightFactor: 2.1,
+                  heightFactor: 1.7,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 2.0,
+                      Center(
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                            letterSpacing: 2.0,
+                          ),
                         ),
                       ),
+
+                      SizedBox(height: 10),
+
+                      Center(
+                        child: Text('Welcome back, you\'ve been missed!',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                            )
+                        ),
+                      ),
+
+                      SizedBox(height: 30),
+
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        //margin: EdgeInsets.only(top: 20),
                         child: Form(
                           key: _formKey,
                           child: Column(
@@ -82,22 +92,20 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(
                                     Icons.account_circle,
-                                    color: Colors.grey,
+                                    color: Colors.grey.shade500,
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.grey,
+                                      color: Colors.grey.shade500,
                                     ),
                                   ),
-                                  hintText: 'Username.',
+                                  hintText: 'Username',
                                   hintStyle:
-                                  TextStyle(fontSize: 14, color: Colors.grey),
+                                  TextStyle(color: Colors.grey),
                                   contentPadding: EdgeInsets.all(10.0),
                                 ),
                               ),
-                              SizedBox(
-                                height: 10,
-                              ),
+                              SizedBox(height: 10),
                               TextFormField(
                                 obscureText: true,
                                 key: ValueKey(2),
@@ -116,16 +124,16 @@ class _LoginPageState extends State<LoginPage> {
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(
                                     Icons.password,
-                                    color: Colors.grey,
+                                    color: Colors.grey.shade500,
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: Colors.grey,
+                                      color: Colors.grey.shade500,
                                     ),
                                   ),
                                   hintText: 'Password',
                                   hintStyle:
-                                  TextStyle(fontSize: 14, color: Colors.grey),
+                                  TextStyle(color: Colors.grey),
                                   contentPadding: EdgeInsets.all(10.0),
                                 ),
                               ),
@@ -133,9 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
+                      SizedBox(height: 20),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 40,
                         height: 40,
@@ -149,26 +155,53 @@ class _LoginPageState extends State<LoginPage> {
                           child: Text(
                             'Login',
                             style: TextStyle(
-                                fontSize: 15.0,
+                                fontSize: 17.0,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 15,
+                      SizedBox(height: 15),
+
+                      Center(
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: TextStyle(
+                                fontSize: 17,
+                                decoration: TextDecoration.underline),
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          child: Text('Forgot Username'),
+                        ),
                       ),
+
+                      Center(
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: TextStyle(
+                                fontSize: 17,
+                                decoration: TextDecoration.underline),
+                          ),
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          child: Text('Forgot Password'),
+                        ),
+                      ),
+
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
                             'Not a member?',
-                            style: TextStyle(fontSize: 15),
+                            style: TextStyle(fontSize: 17),
                           ),
                           TextButton(
                             style: TextButton.styleFrom(
                               textStyle: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 17,
                                   decoration: TextDecoration.underline),
                             ),
                             onPressed: () {
@@ -184,16 +217,18 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
+
           Positioned(
             bottom: 0,
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: 70,
+              height: 50,
               decoration: BoxDecoration(
-                color: Colors.indigo,
+                color: Colors.grey.shade100,
               ),
             ),
           ),
+
         ]),
       ),
     );
