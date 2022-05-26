@@ -19,6 +19,7 @@ class _profilePageState extends State<profilePage> {
         ),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,

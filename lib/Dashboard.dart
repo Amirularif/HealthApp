@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
-import 'package:healthapp/profile.dart';
+import 'package:healthapp/Profile/profile.dart';
 import 'package:healthapp/surveymain.dart';
+import 'Profile/profile_page.dart';
+import 'Profile/profilemain.dart';
 
 class DashboardPage extends StatelessWidget{
   const DashboardPage({Key? key}) : super(key: key);
@@ -39,7 +41,7 @@ class DashboardPage extends StatelessWidget{
                 onPressed: (){
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => profilePage()),
+                    MaterialPageRoute(builder: (context) => ProfileMain()),
                   );
                 },
               ),

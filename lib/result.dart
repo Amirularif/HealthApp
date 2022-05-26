@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'Dashboard.dart';
 
 class Result extends StatelessWidget {

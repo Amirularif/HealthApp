@@ -5,7 +5,7 @@ import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
 import 'package:healthapp/mood.dart';
-import 'package:healthapp/profile.dart';
+import 'package:healthapp/Profile/profile.dart';
 
 void main() {
   runApp(MyApp());
