@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   survey_kit: ^0.1.0
   conditional_questions: ^1.0.8
+  google_fonts: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,7 @@ dev_dependencies:
   table_calendar: ^3.0.5
   syncfusion_flutter_charts: ^20.1.52
   animated_theme_switcher: ^2.0.1-nullsafety.0
+
 
 
 # For information on the generic Dart part of this file, see the
@@ -70,10 +72,10 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/angry.png
-    - assets/annoyed.png
-    - assets/cry.png
-    - assets/really_happy.png
-    - assets/smile.png
+    - assets/calm.png
+    - assets/sad.png
+    - assets/happy.png
+    - assets/stressed.png
     - assets/top widget.png
     - assets/with welcome.png
     - assets/bottom widget.png
@@ -81,8 +83,16 @@ flutter:
     - assets/profile.png
     - assets/button.png
     - assets/data.json
-    - assets/survey.json
     - assets/GAD7.png
+    - assets/GAD7-new.png
+    - assets/mood-new.png
+    - assets/stats-new.png
+    - assets/설문2-new.png
+    -  assets/gad7 (1).png
+    - assets/userprofile.png
+    - assets/moodlog.png
+    - assets/stats.png
+    - assets/solmun.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

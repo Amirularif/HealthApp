@@ -1,3 +1,4 @@
+import 'package:google_fonts/google_fonts.dart';
 import 'package:healthapp/event.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/mood.dart';
@@ -36,22 +37,20 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bg.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-    child : Scaffold(
+    return Scaffold(
+      resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text("Mood Tracker"),
+        backgroundColor: Colors.grey.shade100,
+        elevation: 5,
+        iconTheme: IconThemeData(
+          color: Colors.grey.shade800,
+        ),
+        title: Text("Mood Tracker",
+          style: GoogleFonts.pacifico(),),
         titleTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 23.0,
-            fontWeight: FontWeight.bold),
+            color: Colors.grey.shade800,
+            fontSize: 23.0),
         centerTitle: true,
       ),
       body: Padding(
@@ -87,18 +86,21 @@ class _CalendarState extends State<Calendar> {
 
               //To style the Calendar
               calendarStyle: CalendarStyle(
-                isTodayHighlighted: false,
+                isTodayHighlighted: true,
                 selectedDecoration: BoxDecoration(
                   color: Colors.indigo,
-                  shape: BoxShape.circle,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
                 selectedTextStyle: TextStyle(color: Colors.white),
                 todayDecoration: BoxDecoration(
                   color: Colors.purpleAccent,
-                  shape: BoxShape.circle,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
                 defaultDecoration: BoxDecoration(
                   shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(5.0),
                 ),
                 weekendDecoration: BoxDecoration(
                   shape: BoxShape.rectangle,
@@ -111,6 +113,7 @@ class _CalendarState extends State<Calendar> {
                 formatButtonShowsNext: false,
                 formatButtonDecoration: BoxDecoration(
                   color: Colors.indigo,
+                  shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 formatButtonTextStyle: TextStyle(
@@ -122,7 +125,6 @@ class _CalendarState extends State<Calendar> {
                   (Event event) =>
                       ListTile(
                     title: Text(event.title),
-
               ),
             ),
             Container(height: 50),
@@ -134,20 +136,6 @@ class _CalendarState extends State<Calendar> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children:[
-                  IconButton(icon: Image.asset('assets/annoyed.png'),
-                      iconSize:40,
-                      onPressed: (){
-                        if(selectedEvents[selectedDay] != null){
-                          selectedEvents[selectedDay]?.add(
-                            Event(title: 'Annoyed'),
-                          );
-                        }else{
-                          selectedEvents[selectedDay] = [
-                            Event(title: 'Annoyed')];
-                        }
-                        setState((){});
-                        return;
-                     }),
                   IconButton(icon: Image.asset('assets/angry.png'),
                       iconSize:40,
                       onPressed: (){
@@ -161,36 +149,50 @@ class _CalendarState extends State<Calendar> {
                         }
                         setState((){});
                         return;
-                      }),
-                  IconButton(icon: Image.asset('assets/cry.png'),
+                     }),
+                  IconButton(icon: Image.asset('assets/stressed.png'),
                       iconSize:40,
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Cry'),
+                            Event(title: 'Stress'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Cry')];
+                            Event(title: 'Stress')];
                         }
                         setState((){});
                         return;
                       }),
-                  IconButton(icon: Image.asset('assets/really_happy.png'),
+                  IconButton(icon: Image.asset('assets/sad.png'),
                       iconSize:40,
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
                           selectedEvents[selectedDay]?.add(
-                            Event(title: 'Really Happy'),
+                            Event(title: 'Sad'),
                           );
                         }else{
                           selectedEvents[selectedDay] = [
-                            Event(title: 'Really Happy')];
+                            Event(title: 'Sad')];
                         }
                         setState((){});
                         return;
                       }),
-                  IconButton(icon: Image.asset('assets/smile.png'),
+                  IconButton(icon: Image.asset('assets/calm.png'),
+                      iconSize:40,
+                      onPressed: (){
+                        if(selectedEvents[selectedDay] != null){
+                          selectedEvents[selectedDay]?.add(
+                            Event(title: 'Calm'),
+                          );
+                        }else{
+                          selectedEvents[selectedDay] = [
+                            Event(title: 'Calm')];
+                        }
+                        setState((){});
+                        return;
+                      }),
+                  IconButton(icon: Image.asset('assets/happy.png'),
                       iconSize:40,
                       onPressed: (){
                         if(selectedEvents[selectedDay] != null){
@@ -209,7 +211,6 @@ class _CalendarState extends State<Calendar> {
             ],
         ),
       ),
-    ),
     );
   }
 }

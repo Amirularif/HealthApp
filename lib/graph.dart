@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class graphPage extends StatefulWidget {
@@ -33,22 +34,21 @@ class _graphPageState extends State<graphPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bg.png'),
-            fit: BoxFit.cover,
-          ),
-        ),
-    child: Scaffold(
+    return Scaffold(
+        resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+        backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text('Mood statistics'),
+          backgroundColor: Colors.grey.shade100,
+          elevation: 5,
+          iconTheme: IconThemeData(
+            color: Colors.grey.shade800,
+          ),
+          title: Text('Mood statistics',
+            style: GoogleFonts.pacifico(),
+          ),
           titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 23.0,
-              fontWeight: FontWeight.bold),
+              color: Colors.grey.shade800,
+              fontSize: 25.0),
           centerTitle: true,
         ),
         body: Center(
@@ -113,8 +113,7 @@ class _graphPageState extends State<graphPage> {
                 }
                 )
               )
-            )
-        );
+            );
     }
 }
 

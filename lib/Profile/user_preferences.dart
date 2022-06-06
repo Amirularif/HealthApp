@@ -3,7 +3,7 @@ import 'package:healthapp/Profile/user.dart';
 class UserPreferences {
   static const myUser = User(
     imagePath:
-    'https://images.unsplash.com/photo-1523477800337-966dbabe060b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388',
+    'https://images.unsplash.com/photo-1625472603513-413fb94f8b0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
     name: 'Amirul Arif',
     email: 'amirul@gmail.com',
     weight:
@@ -12,6 +12,6 @@ class UserPreferences {
     '23',
     gender:
     'Male',
-    isDarkMode: true,
+    isDarkMode: false,
   );
 }

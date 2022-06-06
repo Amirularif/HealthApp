@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   String userId = '';
   String userPassword = '';
+  String Fitbit = '';
   final _formKey = GlobalKey<FormState>();
 
   void _tryValidation(BuildContext context) {
@@ -17,8 +18,8 @@ class _LoginPageState extends State<LoginPage> {
     if (isValid) {
       _formKey.currentState!.save();
     }
-    if (userId == 'test' && userPassword == 'test') {
-      Navigator.pushNamed(context, '/dashboard');
+    if (userId !.isNotEmpty && userPassword !.isNotEmpty && Fitbit !.isNotEmpty) {
+      Navigator.pushNamed(context, '/');
     }
   }
 
@@ -48,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Center(
                         child: Text(
-                          'Login',
+                          'Register',
                           style: TextStyle(
                             fontSize: 30.0,
                             fontWeight: FontWeight.bold,
@@ -60,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 10),
 
                       Center(
-                        child: Text('Welcome back, you\'ve been missed!',
+                        child: Text('Create an Account, it\'s free!',
                             style: TextStyle(
                               fontSize: 20.0,
                             )
@@ -141,6 +142,37 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        key: ValueKey(1),
+                        validator: (value) {
+                          if (value!.isEmpty || value.length < 4) {
+                            return 'Input your Fitbit Model';
+                          }
+                          return null;
+                        },
+                        onSaved: (value) {
+                          Fitbit = value!;
+                        },
+                        onChanged: (value) {
+                          Fitbit = value;
+                        },
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.watch,
+                            color: Colors.grey.shade500,
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.grey.shade500,
+                            ),
+                          ),
+                          hintText: 'Fitbit Model',
+                          hintStyle:
+                          TextStyle(color: Colors.grey),
+                          contentPadding: EdgeInsets.all(10.0),
+                        ),
+                      ),
                       SizedBox(height: 20),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 40,
@@ -153,7 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                             primary: Colors.indigo, // Background color
                           ),
                           child: Text(
-                            'Login',
+                            'Register',
                             style: TextStyle(
                                 fontSize: 17.0,
                                 color: Colors.white,
@@ -163,39 +195,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       SizedBox(height: 15),
 
-                      Center(
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: TextStyle(
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/Register');
-                          },
-                          child: Text('Forgot Username'),
-                        ),
-                      ),
-
-                      Center(
-                        child: TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: TextStyle(
-                                fontSize: 17,
-                                decoration: TextDecoration.underline),
-                          ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, '/register');
-                          },
-                          child: Text('Forgot Password'),
-                        ),
-                      ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Text(
-                            'Not a member?',
+                            'Already have an Account?',
                             style: TextStyle(fontSize: 17),
                           ),
                           TextButton(
@@ -205,9 +209,9 @@ class _LoginPageState extends State<LoginPage> {
                                   decoration: TextDecoration.underline),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, '/Register');
+                              Navigator.pushNamed(context, '/');
                             },
-                            child: Text('Register'),
+                            child: Text('Login'),
                           ),
                         ],
                       )

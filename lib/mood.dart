@@ -15,52 +15,46 @@ class HomePage extends StatefulWidget {
 
     @override
     Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-      image: DecorationImage(
-      image: AssetImage('assets/bg.png'),
-      fit: BoxFit.cover,
+    return Scaffold(
+      resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+      backgroundColor: Colors.grey.shade100,
+      appBar: AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+        title: Text("How do you feel today?"),
+        titleTextStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 23.0,
+        fontWeight: FontWeight.bold),
+        centerTitle: true,
       ),
-    ),
-      child : Scaffold(
-        appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-          title: Text("How do you feel today?"),
-          titleTextStyle: TextStyle(
-          color: Colors.black,
-          fontSize: 23.0,
-          fontWeight: FontWeight.bold),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              IconButton(icon: Image.asset('assets/annoyed.png'),
-                  iconSize:40,
-                  onPressed: (){
-                    Event(title: 'Annoyed');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Calendar()),
-                    );
-                  }),
-              IconButton(icon: Image.asset('assets/angry.png'),
-                  iconSize:40,
-                  onPressed: (){}),
-              IconButton(icon: Image.asset('assets/cry.png'),
-                  iconSize:40,
-                  onPressed: (){}),
-              IconButton(icon: Image.asset('assets/really_happy.png'),
-                  iconSize:40,
-                  onPressed: (){}),
-              IconButton(icon: Image.asset('assets/smile.png'),
-                  iconSize:40,
-                  onPressed: (){})
-              ],
-            ),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            IconButton(icon: Image.asset('assets/stressed.png'),
+                iconSize:40,
+                onPressed: (){
+                  Event(title: 'Annoyed');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Calendar()),
+                  );
+                }),
+            IconButton(icon: Image.asset('assets/angry.png'),
+                iconSize:40,
+                onPressed: (){}),
+            IconButton(icon: Image.asset('assets/sad.png'),
+                iconSize:40,
+                onPressed: (){}),
+            IconButton(icon: Image.asset('assets/calm.png'),
+                iconSize:40,
+                onPressed: (){}),
+            IconButton(icon: Image.asset('assets/happy.png'),
+                iconSize:40,
+                onPressed: (){})
+            ],
           ),
         ),
       );

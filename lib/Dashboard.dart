@@ -2,42 +2,46 @@ import 'package:flutter/cupertino.dart';
 import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
-import 'package:healthapp/Profile/profile.dart';
-import 'package:healthapp/surveymain.dart';
+import 'package:healthapp/GAD-7 survey/surveymain.dart';
+import 'package:healthapp/student survey/studentsurveymain.dart';
 import 'Profile/profile_page.dart';
 import 'Profile/profilemain.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DashboardPage extends StatelessWidget{
   const DashboardPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/bg.png'),
-          fit: BoxFit.cover,
+    return Scaffold(
+      resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+      backgroundColor: Colors.grey.shade100,
+      appBar: AppBar(
+        backgroundColor: Colors.grey.shade100,
+        elevation: 5,
+        actions: [
+          Icon(Icons.more_vert),
+        ],
+        iconTheme: IconThemeData(
+          color: Colors.grey.shade800,
         ),
+        title: Text('Main Menu',
+        style: GoogleFonts.pacifico(),
+        ),
+        titleTextStyle: TextStyle(
+            color: Colors.grey.shade800,
+            fontSize: 25.0),
+        centerTitle: true,
       ),
-      child : Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: const Text('Main Menu'),
-          titleTextStyle: TextStyle(
-              color: Colors.black,
-              fontSize: 23.0,
-              fontWeight: FontWeight.bold),
-          centerTitle: true,
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(icon :Image.asset('assets/with welcome.png'),
-                padding: EdgeInsets.all(5),
-                constraints: BoxConstraints.expand(width: 200, height: 600),
+      body: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            SizedBox(
+              height: 600,
+              width: 210,
+              child: IconButton(icon :Image.asset('assets/userprofile.png'),
                 onPressed: (){
                   Navigator.push(
                     context,
@@ -45,12 +49,15 @@ class DashboardPage extends StatelessWidget{
                   );
                 },
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  IconButton(icon: Image.asset('assets/top widget.png'),
-                    iconSize: 153,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                SizedBox(
+                  height: 140,
+                  width: 136,
+                  child :IconButton(icon: Image.asset('assets/moodlog.png'),
                     onPressed: (){
                       Navigator.push(
                         context,
@@ -58,8 +65,12 @@ class DashboardPage extends StatelessWidget{
                       );
                     },
                   ),
-                  IconButton(icon: Image.asset('assets/bottom widget.png'),
-                    iconSize: 153,
+                ),
+                SizedBox(
+                  height: 140,
+                  width: 136,
+                  child :IconButton(icon: Image.asset('assets/stats.png'),
+                    iconSize: 120,
                     onPressed: (){
                       Navigator.push(
                         context,
@@ -67,8 +78,11 @@ class DashboardPage extends StatelessWidget{
                       );
                     },
                   ),
-                  IconButton(icon: Image.asset('assets/GAD7.png'),
-                    iconSize: 153,
+                ),
+                SizedBox(
+                  height: 140,
+                  width: 136,
+                  child :IconButton(icon: Image.asset('assets/gad7 (1).png'),
                     onPressed: (){
                       Navigator.push(
                         context,
@@ -76,10 +90,22 @@ class DashboardPage extends StatelessWidget{
                       );
                     },
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+                SizedBox(
+                  height:100,
+                  width:136,
+                  child: IconButton(icon: Image.asset('assets/solmun.png'),
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => StudentSurveyMainPage()),
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );

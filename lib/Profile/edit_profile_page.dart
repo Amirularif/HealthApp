@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
+import 'package:healthapp/Profile/profilemain.dart';
 import 'package:healthapp/Profile/user.dart';
 import 'package:healthapp/Profile/user_preferences.dart';
 import 'package:healthapp/Profile/widget/appbar_widget.dart';
@@ -26,6 +27,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           padding: EdgeInsets.symmetric(horizontal: 32),
           physics: BouncingScrollPhysics(),
           children: [
+            const SizedBox(height: 24),
             ProfileWidget(
               imagePath: user.imagePath,
               isEdit: true,
@@ -64,6 +66,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
               onChanged: (weight) {},
             ),
             const SizedBox(height: 24),
+            MaterialButton(
+              padding: EdgeInsets.symmetric(vertical: 4),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileMain()),
+                );
+              },
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              child: Text('Save',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+              ),
+            const SizedBox(height: 50),
           ],
         ),
       ),

@@ -1,6 +1,6 @@
 [
   {
-    "mood": "Annoyed",
+    "mood": "Stressed",
     "scale": 5.0
   },
   {
@@ -8,11 +8,11 @@
     "scale": 8.0
   },
   {
-    "mood": "Cry",
+    "mood": "Sad",
     "scale": 4.0
   },
   {
-    "mood": "Normal",
+    "mood": "Calm",
     "scale": 2.0
   },
   {

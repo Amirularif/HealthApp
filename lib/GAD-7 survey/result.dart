@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Dashboard.dart';
+import 'package:healthapp/Dashboard.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;

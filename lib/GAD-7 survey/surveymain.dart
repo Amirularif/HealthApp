@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:healthapp/quiz.dart';
-import 'package:healthapp/result.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:healthapp/GAD-7 survey/quiz.dart';
+import 'package:healthapp/GAD-7 survey/result.dart';
 
 class SurveyMainPage extends StatefulWidget {
+  const SurveyMainPage({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _SurveyMainPageState();
@@ -103,12 +105,22 @@ class _SurveyMainPageState extends State<SurveyMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
+      resizeToAvoidBottomInset: false, // make sure no overflow when keyboard appears
+      backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
-          title: Text('GAD-7 Health Survey'),
-          backgroundColor: Colors.indigo,
-          centerTitle: true,
+          backgroundColor: Colors.grey.shade100,
+          elevation: 5,
+          iconTheme: IconThemeData(
+            color: Colors.grey.shade800,
+          ),
+          title: Text('GAD-7 Health Survey',
+          style: GoogleFonts.pacifico(),
+        ),
+        titleTextStyle: TextStyle(
+            color: Colors.grey.shade800,
+            fontSize: 20.0),
+        centerTitle: true,
         ),
         body: Padding(
           padding: const EdgeInsets.all(30.0),
@@ -120,8 +132,6 @@ class _SurveyMainPageState extends State<SurveyMainPage> {
           ) //Quiz
               : Result(_totalScore, _resetQuiz),
         ), //Padding
-      ), //Scaffold
-      debugShowCheckedModeBanner: false,
-    ); //MaterialApp
+      ); //Scaffold
   }
 }

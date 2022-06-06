@@ -26,6 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
           body: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
+              const SizedBox(height: 24),
               ProfileWidget(
                 imagePath: user.imagePath,
                 onClicked: () {
@@ -54,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
       const SizedBox(height: 4),
       Text(
         user.email,
-        style: TextStyle(color: Colors.grey),
+        style: TextStyle(),
       )
     ],
   );

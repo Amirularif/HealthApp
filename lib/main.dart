@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:healthapp/Dashboard.dart';
 import 'package:healthapp/Login.dart';
+import 'package:healthapp/Register.dart';
 import 'package:healthapp/calendar.dart';
 import 'package:flutter/material.dart';
 import 'package:healthapp/graph.dart';
 import 'package:healthapp/mood.dart';
-import 'package:healthapp/Profile/profile.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' :(context) => LoginPage(),//SurveyPage(),
+        '/Register' :(context) => RegisterPage(),
         '/dashboard' :(context) =>DashboardPage(),
       },
       theme: ThemeData(
